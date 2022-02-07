@@ -3,3 +3,11 @@ parameters:
         - src
         - tests
     level: 9
+    ignoreErrors:
+        # In tests when we create a DateTime we don't want to worry about them creating errors
+        -
+            message: '#.*constructor expects DateTime, DateTime\|false given.#'
+            path: tests/*
+        -
+            message: '#.*does not accept DateTime\|false.#'
+            path: tests/*
